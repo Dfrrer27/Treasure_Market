@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -9,6 +10,7 @@ class HomeController extends Controller
 {
     public function __invoke(){
             // return view('welcome');
-        return view('home');
+        $products = Product::orderBy('descuento', 'desc')->take(5)->get();
+        return view('home', ['products' => $products]);
     }
 }

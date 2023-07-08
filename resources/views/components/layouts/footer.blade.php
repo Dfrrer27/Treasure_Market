@@ -23,8 +23,6 @@
       <p>Joel Jesús, Bautista Carbajal</p>
   </div>
   <div class="footer-col">
-      <img class="footer-logo" src="img/footer/logo2-hd.png" alt="logo-img">
+      <img class="footer-logo" src="img/footer/logo-footer.png" alt="logo-img">
   </div>
 </footer>
-
-<link rel="stylesheet" href="{{ asset('css/layout/footer-styles.css') }}">

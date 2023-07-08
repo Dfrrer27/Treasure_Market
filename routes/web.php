@@ -9,6 +9,8 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategorysController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +24,7 @@ use App\Http\Controllers\HistoryController;
 */
 
 //Ruta principal, HOME
-Route::get('/', HomeController::class);
+Route::get('/', HomeController::class)->name('home');
 
 Route::controller(SellController::class)->group(function(){
     //ruta, VENDER pagina que administra el publicar ventas
@@ -76,14 +78,23 @@ Route::get('account/username', [AccountController::class, 'update_user']);
 //Ruta, 
 Route::get('account/password', [AccountController::class, 'update_password']);
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () { Route::get('/dashboard', function () {
+//JetStream
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->
+    group(function () { Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 });
+
+// Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])
+//     ->group(function () {
+//         Route::get('/dashboard', [UserController::class, 'showProfile'])->name('dashboard');
+//     });
+
+// Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->
+//     group(function () { Route::get('/', function () {
+//         return view('home');
+//     })->name('home');
+// });
 
 // Ruta fallback para redirigir todas las demás rutas que no coincidan con las anteriores, hacia '/'
 Route::fallback(function () {

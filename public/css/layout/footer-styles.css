@@ -2,7 +2,7 @@ footer {
   background-color: black;
   display: grid;
   grid-template-columns: 20% 20% 40% 20%;
-  min-height: auto;
+  height: auto;
   padding: 20px 60px;
 }
 

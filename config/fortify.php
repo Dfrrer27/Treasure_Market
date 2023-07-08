@@ -46,7 +46,7 @@ return [
     |
     */
 
-    'username' => 'email',
+    'username' => 'usuario_nombre', //aqui modifico la autentificación de usuario mediante nombre de usuario(username)
 
     'email' => 'email',
 

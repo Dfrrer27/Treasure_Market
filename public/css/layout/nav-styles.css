@@ -1,10 +1,208 @@
+a {
+    text-decoration: none;
+}
+
 nav {
     background-color: black;
     display: grid;
     grid-template-columns: 1fr 40% 1fr;
-    height: 68px;
+    height: 70px;
     padding: 0 20px;
-    position: relative;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.user h3 {
+    color: #e1e1e1;
+  }
+
+/* codigo sidebar */
+
+ .sidebar {
+    position: fixed;
+    top: 0;
+    left: -330px; /* Cambia esto según el ancho deseado del sidebar */
+    width: 330px; /* Cambia esto según el ancho deseado del sidebar */
+    height: 100vh;
+    background-color: #000;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: thin;
+    scrollbar-color: #FFBF00 #000;
+  }
+
+  .sidebar::-webkit-scrollbar {
+    width: 8px; /* Ancho del scrollbar */
+  }
+  
+  .sidebar::-webkit-scrollbar-track {
+    background: #000; /* Color de fondo del track */
+  }
+  
+  .sidebar::-webkit-scrollbar-thumb {
+    background-color: #FFBF00; /* Color del thumb */
+    border-radius: 8px; /* Borde del thumb */
+  }
+  
+  .sidebar::-webkit-scrollbar-thumb:hover {
+    background-color: #FFA500; /* Color del thumb al pasar el cursor */
+  }
+
+.nav__link {
+    color: #FFBF00;
+    display: block;
+    padding: 15px 0;
+    text-decoration: none;
+}
+
+.nav__link--inside {
+    border-radius: 6px;
+    padding-left: 20px;
+}
+
+.nav__link--inside:hover {
+    background-color: #1b1b1b;
+}
+
+.list {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.list__item {
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.list__item--click {
+    cursor: pointer;
+}
+
+.list_button {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    width: 90%;
+    margin: 0;
+}
+
+.arrow .list_arrow{
+    transform: rotate(90deg);
+}
+
+.list_arrow {
+    margin-left: auto;
+    transition: transform .3s;
+    height: 18px !important;
+    width: 18px !important;
+}
+
+.list_button img {
+    height: 30px;
+    width: 30px;
+}
+
+.list__show {
+    width: 80%;
+    padding: 0;
+    border-left: 2px solid #FFBF00;
+    list-style: none;
+    text-align: start;
+    transition: height .4s;
+    height: 0;
+}
+
+  .menu-content {
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    height: 70px;
+    padding: 10px 20px;
+  }
+
+  .menu-content img {
+    aspect-ratio: 1;
+    height: 65%;
+    margin: 0 20px 0 0;
+    cursor: pointer;
+  }
+
+  .sidebar p{
+    color: #FFBF00;
+  }
+  
+  .sidebar.active {
+    left: 0;
+  }
+
+  .content-user {
+    height: auto;
+    margin-left: 20px;
+    margin-top: auto;
+  }
+
+.content-user p a {
+    color: #FFBF00;
+}
+
+.login-user {
+  padding: 0 10px;
+  margin: 11px 30px 0 0;
+  background-color: #FFBF00;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  gap: 10px;
+}
+
+.login-user img {
+  width: 50px;
+  height: 50px;
+}
+
+.logout-user {
+  cursor: pointer;
+  padding: 0 20px;
+  margin: 10px 30px 15px 0;
+  border: 0;
+  background-color: #FFBF00;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  gap: 10px;
+}
+
+.logout-user img {
+  width: 50px;
+  height: 50px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user img {
+  width: 50px;
+  height: 50px;
+}
+
+.img-radius {
+  border-radius: 30px;
 }
 
 nav .__col {
@@ -16,7 +214,7 @@ nav .__col {
 
 nav .__col:last-child {
     display: flex;
-    grid-gap: 0 15px;
+    grid-gap: 0;
     justify-content: flex-end;
     position: sticky;
 }
@@ -28,15 +226,16 @@ nav .logo {
 
 nav .menu {
     aspect-ratio: 1;
-    height: 80%;
+    height: 65%;
     margin: 0 20px 0 0;
+    cursor: pointer;
 }
 
 .btn-icon {
     align-items: center;
     background-color: transparent;
     border: none;
-    color: #ffc107;
+    color: #FFBF00;
     display: grid;
     height: inherit;
     font-size: 1.3rem;
@@ -45,8 +244,9 @@ nav .menu {
 }
 
 .btn-icon img {
+    margin-left: 10px;
     aspect-ratio: 1;
-    width: 80%;
+    width: 70%;
 }
 
 .__nav-search-input {
@@ -57,22 +257,23 @@ nav .menu {
 }
 
 .__nav-search-input input {
+    border: 0;
     border-radius: 25px;
-    height: 48px;
+    height: 40px;
     padding: 6px 20px;
     width: 100%;
 }
 
 .__nav-search-input .img {
     align-items: center;
-    aspect-ratio: 1;
-    background-color: orange;
+    aspect-ratio: 1.5;
+    background-color: #FFBF00;
     display: flex;
-    height: 48px;
+    height: 40px;
     justify-content: center;
     position: absolute;
     right: 0;
-    top: 2px;
+    top: 0;    
 }
 
 .__nav-search-input img {
@@ -82,6 +283,6 @@ nav .menu {
 
 .link {
     margin: 0;
-    padding: 6px 0;
+    padding: 12px 0;
     align-self: end;
 }

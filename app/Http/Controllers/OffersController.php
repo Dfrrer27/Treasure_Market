@@ -8,7 +8,7 @@ class OffersController extends Controller
 //Cuando el controlador administra mas de una ruta, se usa mas de un metodo, con el nombre que tu quieras
 {
     public function index(){
-        return "Bienvenido a la pagina donde se muestran todas las ofertas de los productos";
+        return view('modules.offers-module.offers');
     }
 
     public function show($offer){

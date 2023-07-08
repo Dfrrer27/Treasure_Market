@@ -18,15 +18,24 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+    protected $table = 'users';
+
+    protected $primaryKey = 'idusuario';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'nombres',
+        'ape_paterno',
+        'ape_materno',
+        'dni',
+        'usuario_nombre',
         'email',
         'password',
+        'profile_photo_path',
     ];
 
     /**
@@ -58,4 +67,16 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    /**
+     * Get the roles associated with the user.
+     */
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'users_roles', 'usuario_idusuario', 'roles_idroles');
+    }
+
+    /**
+     * Get the user role pivot information.
+     */
 }

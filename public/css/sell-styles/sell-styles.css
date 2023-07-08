@@ -1,0 +1,40 @@
+section {
+  background-image: url('/img/background.png');
+  background-repeat: repeat-x;
+  padding: 60px 7%;
+  min-height: calc(100vh - 68px);
+}
+
+h1 {
+  color: #fff;
+  font-size: 30px;
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.container-msg {
+  padding: 3% 25%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.content-button {
+  padding: 9% 0;
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+}
+
+.button {
+  background-color: #F4B701;
+  padding: 20px 30px;
+  border: 0;
+  border-radius: 15px;
+  cursor: pointer;
+
+}
