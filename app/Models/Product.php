@@ -14,7 +14,7 @@ class Product extends Model
     protected $primaryKey = 'idproductos';
 
     protected $fillable = [
-        'Nombre',
+        'nombre',
         'descripcion',
         'marca',
         'precio',
@@ -26,6 +26,14 @@ class Product extends Model
     // Definir la relación con el modelo Category
     public function category(){
         return $this->belongsTo(Category::class, 'category_idcategoria');
+    }
+
+    /**
+     * Get the details of the product.
+    */
+    public function details(){
+        return $this->belongsToMany(Sale::class, 'details', 'products_idproductos', 'sales_idventas')
+            ->withPivot('cantidad', 'precio_unitario', 'subtotal');
     }
 
 }

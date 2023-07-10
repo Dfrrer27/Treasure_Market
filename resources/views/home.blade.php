@@ -102,52 +102,52 @@
 
   <div id="categories" class="card-multiple">
 
-    <a href="" class="category" data-image="img/categorys/tools/tools.png" data-hover-image="img/categorys/tools/tools-hover.png">
+    <a href="{{ route('showCategory', ['category' => 'Herramientas']) }}" class="category" data-image="img/categorys/tools/tools.png" data-hover-image="img/categorys/tools/tools-hover.png">
       <img src="img/categorys/tools/tools.png" alt="card-img">
       <b>Herramientas</b>
     </a>
 
-    <a href="" class="category" data-image="img/categorys/watches-jewelry/watches-jewelry.png" data-hover-image="img/categorys/watches-jewelry/watches-jewelry-hover.png">
+    <a href="{{ route('showCategory', ['category' => 'Relojes y Joyas']) }}" class="category" data-image="img/categorys/watches-jewelry/watches-jewelry.png" data-hover-image="img/categorys/watches-jewelry/watches-jewelry-hover.png">
       <img src="img/categorys/watches-jewelry/watches-jewelry.png" alt="card-img">
       <b>Relojes y Joyas</b>
     </a>
 
-    <a href="" class="category" data-image="img/categorys/toys/toys.png" data-hover-image="img/categorys/toys/toys-hover.png">
+    <a href="{{ route('showCategory', ['category' => 'Juguetes']) }}" class="category" data-image="img/categorys/toys/toys.png" data-hover-image="img/categorys/toys/toys-hover.png">
       <img src="img/categorys/toys/toys.png" alt="card-img">
       <b>Juguetes</b>
     </a>
 
-    <a href="" class="category" data-image="img/categorys/antiques/antiques.png" data-hover-image="img/categorys/antiques/antiques-hover.png">
+    <a href="{{ route('showCategory', ['category' => 'antigüedades']) }}" class="category" data-image="img/categorys/antiques/antiques.png" data-hover-image="img/categorys/antiques/antiques-hover.png">
       <img src="img/categorys/antiques/antiques.png" alt="card-img">
       <b>antigüedades</b>
     </a>
 
-    <a href="" class="category" data-image="img/categorys/gardening-tools/gardening-tools.png" data-hover-image="img/categorys/gardening-tools/gardening-tools-hover.png">
+    <a href="{{ route('showCategory', ['category' => 'Herramientas para Jardín']) }}" class="category" data-image="img/categorys/gardening-tools/gardening-tools.png" data-hover-image="img/categorys/gardening-tools/gardening-tools-hover.png">
       <img src="img/categorys/gardening-tools/gardening-tools.png" alt="card-img">
       <b>Herramientas para Jardín</b>
     </a>
 
-    <a href="" class="category" data-image="img/categorys/clothing-accessories/clothing-accessories.png" data-hover-image="img/categorys/clothing-accessories/clothing-accessories-hover.png">
+    <a href="{{ route('showCategory', ['category' => 'Ropa y Accesorios']) }}" class="category" data-image="img/categorys/clothing-accessories/clothing-accessories.png" data-hover-image="img/categorys/clothing-accessories/clothing-accessories-hover.png">
       <img src="img/categorys/clothing-accessories/clothing-accessories.png" alt="card-img">
       <b>Ropa y Accesorios</b>
     </a>
 
-    <a href="" class="category" data-image="img/categorys/books/books.png" data-hover-image="img/categorys/books/books-hover.png">
+    <a href="{{ route('showCategory', ['category' => 'Libros, Revistas y Comics']) }}" class="category" data-image="img/categorys/books/books.png" data-hover-image="img/categorys/books/books-hover.png">
       <img src="img/categorys/books/books.png" alt="card-img">
       <b>Libros, Revistas y Comics</b>
     </a>
 
-    <a href="" class="category" data-image="img/categorys/furniture/furniture.png" data-hover-image="img/categorys/furniture/furniture-hover.png">
+    <a href="{{ route('showCategory', ['category' => 'Muebles']) }}" class="category" data-image="img/categorys/furniture/furniture.png" data-hover-image="img/categorys/furniture/furniture-hover.png">
       <img src="img/categorys/furniture/furniture.png" alt="card-img">
       <b>Muebles</b>
     </a>
 
-    <a href="" class="category" data-image="img/categorys/musical-instruments/musical-instruments.png" data-hover-image="img/categorys/musical-instruments/musical-instruments-hover.png">
+    <a href="{{ route('showCategory', ['category' => 'Instrumentos Musicales']) }}" class="category" data-image="img/categorys/musical-instruments/musical-instruments.png" data-hover-image="img/categorys/musical-instruments/musical-instruments-hover.png">
       <img src="img/categorys/musical-instruments/musical-instruments.png" alt="card-img">
       <b>Instrumentos Musicales</b>
     </a>
 
-    <a href="" class="category" data-image="img/categorys/home-appliances/home-appliances.png" data-hover-image="img/categorys/home-appliances/home-appliances-hover.png">
+    <a href="{{ route('showCategory', ['category' => 'Electrodomésticos']) }}" class="category" data-image="img/categorys/home-appliances/home-appliances.png" data-hover-image="img/categorys/home-appliances/home-appliances-hover.png">
       <img src="img/categorys/home-appliances/home-appliances.png" alt="card-img">
       <b>Electrodomésticos</b>
     </a>

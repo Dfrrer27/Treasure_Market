@@ -1,0 +1,111 @@
+section {
+    padding: 6% 3% 0 7%;
+    min-height: calc(100vh - 68px);
+}
+
+a {
+    color: #000;
+}
+
+.client-service {
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.client-service-module img {
+    max-width: 100%;
+    max-height: 490px;
+}
+
+.client-service-module h2 {
+    font-size: 30px;
+}
+
+.client-service-module form {
+    background-color: #FFCE3A;
+    border-radius: 30px 0 0 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 40px 40px;
+    max-height: 490px;
+    position: relative;
+}
+
+.client-service-module form label {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    margin: 8px 0 0;
+}
+
+.client-service-module label input, .client-service-module label textarea {
+    border-radius: 10px;
+    border: 0;
+    height: 30px;
+    margin: 6px 0 0;
+    padding: 3px 12px;
+}
+
+.client-service-module label textarea {
+    min-height: 83px;
+}
+
+.client-service-module {
+    display: grid;
+    grid-gap: 0 54px;
+    grid-template-columns: 2fr 3fr;
+    place-items: center;
+    position: relative;
+    width: 1707px;
+    max-width: 1707px;
+    padding: 0 190px;
+}
+
+.no-grid-module {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-black-yellow {
+    background-color: black;
+    border-radius: 10px;
+    color: #FFCE3A;
+    font-size: 20px;
+    font-weight: 600;
+    min-height: 36px;
+    width: 167px;
+    margin: 25px 0 0;
+    place-self: center;
+}
+
+.goBack {
+    aspect-ratio: 1;
+    height: 40px;
+    left: 15px;
+    top: 53px;
+    position: absolute;
+}
+
+.account-menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr 100px;
+    grid-gap: 25px 60px;
+}
+
+.account-option {
+    align-items: center;
+    background-color: #FFCE3A;
+    border-radius: 25px;
+    display: grid;
+    font-size: 24px;
+    grid-gap: 0 25px;
+    grid-template-columns: 105px 1fr;
+    grid-auto-rows: 136px;
+    padding: 15px 26px;
+    width: 100%;
+}

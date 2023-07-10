@@ -12,6 +12,6 @@ class SellController extends Controller
     }
 
     public function create(){
-        return "En esta pagina podras publicar tu producto";
+        return view('modules.sell-module.sell-create');
     }
 }

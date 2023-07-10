@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id('idservicio_cliente');
             $table->timestamp('fecha_com')->nullable();
-            $table->string('comentario', 700)->nullable();
-            $table->foreignId('users_idusuario')->constrained('users', 'idusuario');
+            $table->string('comentario', 900)->nullable();
+            $table->unsignedBigInteger('usuario_idusuario');
             $table->timestamps();
+
+            $table->foreign('usuario_idusuario')->references('idusuario')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

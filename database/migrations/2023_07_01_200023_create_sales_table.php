@@ -6,26 +6,23 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id('idventas');
-            $table->unsignedBigInteger('users_idcomprador');
-            $table->unsignedBigInteger('products_idproductos');
-            $table->unsignedBigInteger('users_idvendedor');
+            $table->unsignedBigInteger('usuario_idcomprador');
+            $table->unsignedBigInteger('usuario_idvendedor');
             $table->integer('cantidad')->nullable();
             $table->date('fecha_venta')->nullable();
             $table->decimal('precio_venta', 8, 2)->nullable();
-            $table->unsignedBigInteger('payments_idmetodo_pago');
+            $table->unsignedBigInteger('metodo_pago_idmetodo_pago');
             $table->timestamps();
 
-            $table->foreign('users_idcomprador')->references('idusuario')->on('users');
-            $table->foreign('products_idproductos')->references('idproductos')->on('products');
-            $table->foreign('users_idvendedor')->references('idusuario')->on('users');
-            $table->foreign('payments_idmetodo_pago')->references('idmetodo_pago')->on('payments');
+            $table->foreign('usuario_idcomprador')->references('idusuario')->on('users')->onDelete('cascade')->onUpdate('cascade');
+
+            $table->foreign('usuario_idvendedor')->references('idusuario')->on('users')->onDelete('cascade')->onUpdate('cascade');
+
+            $table->foreign('metodo_pago_idmetodo_pago')->references('idmetodo_pago')->on('payments')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

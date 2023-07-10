@@ -69,6 +69,38 @@ class User extends Authenticatable
     ];
 
     /**
+     * Get the services for the user.
+     */
+    public function services()
+    {
+        return $this->hasMany(Service::class, 'usuario_idusuario');
+    }
+
+    /**
+     * Get the sales where the user is the buyer.
+     */
+    public function buyerSales()
+    {
+        return $this->hasMany(Sale::class, 'usuario_idcomprador');
+    }
+
+    /**
+     * Get the sales where the user is the seller.
+     */
+    public function sellerSales()
+    {
+        return $this->hasMany(Sale::class, 'usuario_idvendedor');
+    }
+
+    /**
+     * Get the purchases for the user.
+     */
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class, 'usuario_idusuario');
+    }
+
+    /**
      * Get the roles associated with the user.
      */
     public function roles()
@@ -76,7 +108,8 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class, 'users_roles', 'usuario_idusuario', 'roles_idroles');
     }
 
-    /**
-     * Get the user role pivot information.
-     */
+    public function userRoles()
+    {
+        return $this->hasMany(UserRole::class, 'usuario_idusuario');
+    }
 }

@@ -8,30 +8,26 @@ class CreateDetailsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('details', function (Blueprint $table) {
+            $table->unsignedBigInteger('sales_idventas');
+            $table->unsignedBigInteger('products_idproductos');
             $table->integer('cantidad')->nullable();
             $table->decimal('precio_unitario', 10, 2)->nullable();
             $table->decimal('subtotal', 10, 2)->nullable();
-            $table->unsignedBigInteger('sales_idventas');
-            $table->unsignedBigInteger('products_idproductos');
-            
+
             $table->primary(['sales_idventas', 'products_idproductos']);
-            $table->foreign('sales_idventas')->references('idventas')->on('sales')->onDelete('NO ACTION')->onUpdate('NO ACTION');
-            $table->foreign('products_idproductos')->references('idproductos')->on('products')->onDelete('NO ACTION')->onUpdate('NO ACTION');
+            $table->foreign('sales_idventas')->references('idventas')->on('sales')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('products_idproductos')->references('idproductos')->on('products')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('details');
     }

@@ -25,6 +25,6 @@
   <x-layouts.footer />
 
   <script src="{{ asset($script ?? '') }}"></script>
-  <script src="javascript/nav.js"></script>
+  <script src="/javascript/nav.js"></script>
 </body>
 </html>

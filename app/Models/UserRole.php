@@ -11,6 +11,8 @@ class UserRole extends Model
 
     protected $table = 'users_roles';
 
+    protected $primaryKey = ['roles_idroles', 'usuario_idusuario'];
+
     public $incrementing = false;
 
     protected $fillable = [
@@ -22,10 +24,9 @@ class UserRole extends Model
     {
         return $this->belongsTo(Role::class, 'roles_idroles');
     }
-    
+
     public function user()
     {
         return $this->belongsTo(User::class, 'usuario_idusuario');
-    }    
+    }
 }
-

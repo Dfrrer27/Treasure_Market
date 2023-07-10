@@ -13,20 +13,30 @@ class Purchase extends Model
 
     protected $primaryKey = 'idcarrito_compra';
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
-        'users_idusuario',
-        'products_idproductos',
+        'usuario_idusuario',
+        'productos_idproductos',
         'cantidad',
     ];
 
-    // Definir las relaciones con los modelos de usuario y producto
+    /**
+     * Get the user who made the purchase.
+     */
     public function user()
     {
-        return $this->belongsTo(User::class, 'users_idusuario');
+        return $this->belongsTo(User::class, 'usuario_idusuario');
     }
 
+    /**
+     * Get the product in the purchase.
+     */
     public function product()
     {
-        return $this->belongsTo(Product::class, 'products_idproductos');
+        return $this->belongsTo(Product::class, 'productos_idproductos');
     }
 }

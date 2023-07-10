@@ -16,4 +16,12 @@ class Payment extends Model
     protected $fillable = [
         'nombre',
     ];
+
+    /**
+     * Get the sales using the payment method.
+    */
+    public function sales()
+    {
+        return $this->hasMany(Sale::class, 'metodo_pago_idmetodo_pago');
+    }
 }

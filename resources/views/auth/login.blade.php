@@ -27,6 +27,16 @@
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
             </div>
 
+            <div class="mt-4">
+                <x-label for="role" value="{{ __('Rol de Usuario') }}" />
+                <select name="role" id="role" class="block mt-1 w-full">
+                    <option value="" disabled selected>Selecciona un rol</option>
+                    <option value="comprador">Comprador</option>
+                    <option value="vendedor">Vendedor</option>
+                </select>
+            </div>
+            
+
             <div class="block mt-4">
                 <label for="remember_me" class="flex items-center">
                     <x-checkbox id="remember_me" name="remember" />

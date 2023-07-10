@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
+use Illuminate\Support\Facades\Auth;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -27,7 +28,7 @@ class CreateNewUser implements CreatesNewUsers
             'ape_paterno' => ['required', 'string', 'max:255'],
             'ape_materno' => ['required', 'string', 'max:255'],
             'dni' => ['required', 'numeric', 'digits:8', 'unique:users'],
-            'usuario_nombre' => ['required', 'string', 'max:40'],
+            'usuario_nombre' => ['required', 'string', 'max:100'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
@@ -47,6 +48,9 @@ class CreateNewUser implements CreatesNewUsers
         if ($selectedRole) {
             $user->roles()->attach($selectedRole);
         }
+
+        // Autenticar al usuario recién registrado
+        Auth::login($user);
 
         return $user;
     }

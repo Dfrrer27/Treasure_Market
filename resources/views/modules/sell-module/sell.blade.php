@@ -10,7 +10,7 @@
       <div class="content-button" >
         <a href="#"><button class="button" type="button"><h2>Cambiar Rol</h2></button></a>
 
-        <a href="#"><button class="button" type="button"><h2>Continuar</h2></button></a>
+        <a href="{{ route('sell-create') }}"><button class="button" type="button"><h2>Continuar</h2></button></a>
       </div>
     </div>
   </section>

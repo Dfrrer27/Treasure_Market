@@ -11,15 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
+
         Schema::create('purchases', function (Blueprint $table) {
             $table->id('idcarrito_compra');
-            $table->unsignedBigInteger('users_idusuario');
-            $table->unsignedBigInteger('products_idproductos');
+            $table->unsignedBigInteger('usuario_idusuario');
+            $table->unsignedBigInteger('productos_idproductos');
             $table->integer('cantidad')->nullable();
             $table->timestamps();
 
-            $table->foreign('users_idusuario')->references('idusuario')->on('users');
-            $table->foreign('products_idproductos')->references('idproductos')->on('products');
+            $table->foreign('usuario_idusuario')->references('idusuario')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('productos_idproductos')->references('idproductos')->on('products')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

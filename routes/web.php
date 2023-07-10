@@ -10,6 +10,7 @@ use App\Http\Controllers\CategorysController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Auth\CustomLoginController;
 
 
 /*
@@ -24,14 +25,20 @@ use App\Http\Controllers\UserController;
 */
 
 //Ruta principal, HOME
-Route::get('/', HomeController::class)->name('home');
+
+Route::controller(HomeController::class)->group(function(){
+    Route::get('/', 'show')->name('home');
+
+    Route::get('/category/{category}', 'showCategory')->name('showCategory');
+});
+
 
 Route::controller(SellController::class)->group(function(){
     //ruta, VENDER pagina que administra el publicar ventas
-    Route::get('sell', 'index');
+    Route::get('sell', 'index')->name('sell');
 
     //ruta, VENDER/CREATE (crear o publicar producto)  
-    Route::get('sell/create', 'create');
+    Route::get('sell/create', 'create')->name('sell-create');
 });
 
 Route::controller(CartController::class)->group(function(){
@@ -49,52 +56,36 @@ Route::controller(OffersController::class)->group(function(){
     Route::get('offers/{offer}', 'show');
 });
 
-Route::controller(CategorysController::class)->group(function(){
-    //Ruta, CATEGORYS, por la URL esta recibiendo una variable("category"), muestra todos los producto de una categoria
-    Route::get('categorys/{category}', 'show');
-
-    //Ruta, CATEGORYS y PRODUCT, por la URL esta recibiendo dos variable("category", "product"), muestra una los producto de una categoria
-    Route::get('categorys/{category}/{id}', 'show_products');
-});
-
 Route::controller(HistoryController::class)->group(function(){
     //Ruta, HISTORIAL DE VENTA o COMPRA, por la URL esta recibiendo una variable("role"), muestra todos las ventas o compras que hiciste
-    Route::get('history/{role}', 'show');
+    Route::get('history/{role}', 'show')->name('history');
 
     Route::get('history/{role}/{id}', 'show_invoice');
 });
 
 //Ruta, SERVICIO AL CLIENTE, 
-Route::get('customer', CustomerController::class);
+Route::get('customer', [CustomerController::class, 'index'])->name('customer');
 
 //De aqui en adelante las rutas con usuarios para iniciar sesión y registrarse estan en proceso, porque hemos instalado el paquete JetStream y la verdad aun no se como configurarlo para usarlo como quiero, si me da unos tips sobre que archivos tocar y cuales no, estare eternamente agradecido
 
 //Ruta, CONFIGURACIÓN DE CUENTA, administra la configuracion de tu cuenta
-Route::get('account', [AccountController::class, 'index'] );
+Route::get('account', [AccountController::class, 'index'])->name('account');
 
 //Ruta, 
-Route::get('account/username', [AccountController::class, 'update_user']);
+Route::get('account/username', [AccountController::class, 'update_user'])->name('update_user');
 
 //Ruta, 
-Route::get('account/password', [AccountController::class, 'update_password']);
+Route::get('account/password', [AccountController::class, 'update_password'])->name('update_password');
 
 //JetStream
-Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->
-    group(function () { Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+Route::post('/login', [CustomLoginController::class, 'store'])
+    ->middleware('guest')
+    ->name('login');
 
-// Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])
-//     ->group(function () {
-//         Route::get('/dashboard', [UserController::class, 'showProfile'])->name('dashboard');
-//     });
-
-// Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->
-//     group(function () { Route::get('/', function () {
-//         return view('home');
-//     })->name('home');
-// });
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])
+    ->group(function () {
+        Route::get('/dashboard', [UserController::class, 'showProfile'])->name('dashboard');
+    });
 
 // Ruta fallback para redirigir todas las demás rutas que no coincidan con las anteriores, hacia '/'
 Route::fallback(function () {

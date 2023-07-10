@@ -17,5 +17,8 @@ class Category extends Model
         'nombre',
     ];
 
-    // Definir la relación con otros modelos de ser necesario aquí
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'categoria_idcategoria');
+    }
 }

@@ -84,6 +84,7 @@
                 <x-button class="ml-4">
                     {{ __('Registrarse') }}
                 </x-button>
+                
             </div>
         </form>
     </x-authentication-card>

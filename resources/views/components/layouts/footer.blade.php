@@ -6,11 +6,11 @@
   <div class="footer-col">
       <h3>Redes Sociales</h3>
       <div class="__social-media">
-          <img src="img/footer/facebook.png" alt="img-media">
+          <img src="/img/footer/facebook.png" alt="img-media">
           <span>Facebook</span>
       </div>
       <div class="__social-media">
-          <img src="img/footer/instagram.png" alt="img-media">
+          <img src="/img/footer/instagram.png" alt="img-media">
           <span>Instagram</span>
       </div>
   </div>
@@ -23,6 +23,6 @@
       <p>Joel Jesús, Bautista Carbajal</p>
   </div>
   <div class="footer-col">
-      <img class="footer-logo" src="img/footer/logo-footer.png" alt="logo-img">
+      <img class="footer-logo" src="/img/footer/logo-footer.png" alt="logo-img">
   </div>
 </footer>

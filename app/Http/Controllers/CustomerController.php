@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 class CustomerController extends Controller
 //Cuando el controlador administra una unica ruta se usa invoke
 {
-    public function __invoke(){
-            // return view('welcome');
-        return "Bienvenido a la pagina donde se rellena el formulario para enviarselo al servicio al cliente";
+    public function index(){
+        // return view('welcome');
+        return view('modules.service-module.service');
     }
 }
 

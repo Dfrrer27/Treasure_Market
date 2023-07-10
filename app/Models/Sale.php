@@ -13,28 +13,50 @@ class Sale extends Model
 
     protected $primaryKey = 'idventas';
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
-        'users_idcomprador',
-        'users_idvendedor',
+        'usuario_idcomprador',
+        'usuario_idvendedor',
         'cantidad',
         'fecha_venta',
         'precio_venta',
-        'payments_idmetodo_pago',
+        'metodo_pago_idmetodo_pago',
     ];
 
-    // Definir las relaciones con los modelos de usuario, producto y método de pago
+    /**
+     * Get the buyer of the sale.
+     */
     public function buyer()
     {
-        return $this->belongsTo(User::class, 'users_idcomprador');
+        return $this->belongsTo(User::class, 'usuario_idcomprador');
     }
 
+    /**
+     * Get the seller of the sale.
+     */
     public function seller()
     {
-        return $this->belongsTo(User::class, 'users_idvendedor');
+        return $this->belongsTo(User::class, 'usuario_idvendedor');
     }
 
+    /**
+     * Get the payment method used for the sale.
+     */
     public function paymentMethod()
     {
-        return $this->belongsTo(Payment::class, 'payments_idmetodo_pago');
+        return $this->belongsTo(Payment::class, 'metodo_pago_idmetodo_pago');
+    }
+
+    /**
+     * Get the products included in the sale.
+     */
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'details', 'sales_idventas', 'products_idproductos')
+            ->withPivot('cantidad', 'precio_unitario', 'subtotal');
     }
 }

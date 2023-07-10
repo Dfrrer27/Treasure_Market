@@ -11,7 +11,7 @@
   <div class="card-grid-large">
 
     <a href="" class="content-card">
-      <img src="img/offers/clothes-baby.png" alt="card-img">
+      <img src="/img/offers/clothes-baby.png" alt="card-img">
       <div class="__card-text">
         <h2>
           S/400 <small>36% OFF</small>

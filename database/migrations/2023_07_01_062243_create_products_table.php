@@ -19,10 +19,10 @@ return new class extends Migration
             $table->decimal('precio', 8, 2)->nullable();
             $table->unsignedBigInteger('categoria_idcategoria');
             $table->integer('descuento');
-            $table->string('img', 45)->nullable();
+            $table->string('img', 200)->nullable();
             $table->timestamps();
 
-            $table->foreign('categoria_idcategoria')->references('idcategoria')->on('categories');
+            $table->foreign('categoria_idcategoria')->references('idcategoria')->on('categories')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
